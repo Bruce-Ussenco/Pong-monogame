@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -38,7 +39,18 @@ public class Player {
     }
 
     public void Update() {
+        if (_playerNum == 0) {
+            if (Keyboard.GetState().IsKeyDown(Keys.Up)) {
+                _position.Y = Math.Max(_height/2, _position.Y - _speed);
+            }
 
+            if (Keyboard.GetState().IsKeyDown(Keys.Down)) {
+                _position.Y = Math.Min(_screenHeight - _height/2, _position.Y + _speed);
+            }
+        }
+        else {
+
+        }
     }
 
     public void Draw(SpriteBatch spriteBatch) {
@@ -53,11 +65,8 @@ public class Player {
         );
     }
 
-    public float getLeft() {
-        return _position.X;
-    }
-
-    public float getRight() {
-        return _position.X + _width;
-    }
+    public float getLeft() => _position.X;           // x pos of left face
+    public float getRight() => _position.X + _width; // right face ...
+    public float getDown() => _position.Y + _height /2;
+    public float getUp() => _position.Y - _height /2;
 }

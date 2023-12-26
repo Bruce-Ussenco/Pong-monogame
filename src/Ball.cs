@@ -50,14 +50,14 @@ public class Ball {
         ) _velocity.X *= -1;
 
         if ( // player0 horizontal collision
-            (_position.Y < player0._position.Y + player0._height/2) &&
-            (_position.Y > player0._position.Y - player0._height/2) &&
+            (_position.Y < player0.getDown()) &&
+            (_position.Y > player0.getUp()) &&
             (_position.X - _radius < player0.getRight() && _velocity.X < 0)
         ) _velocity.X *= -1;
 
         if ( // player1 horizontal collision
-            (_position.Y < player1._position.Y + player1._height/2) &&
-            (_position.Y > player1._position.Y - player1._height/2) &&
+            (_position.Y < player1.getDown()) &&
+            (_position.Y > player1.getUp()) &&
             (_position.X + _radius > player1.getLeft() && _velocity.X > 0)
         ) _velocity.X *= -1;
 

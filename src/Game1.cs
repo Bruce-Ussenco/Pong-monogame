@@ -53,6 +53,9 @@ public class Game1 : Game {
             Exit();
 
         // TODO: Add your update logic here
+        player0.Update();
+        player1.Update();
+        
         ball.Update(ref player0, ref player1);
         
         base.Update(gameTime);
