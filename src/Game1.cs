@@ -10,6 +10,9 @@ public class Game1 : Game {
 
     Ball ball;
 
+    Player player0;
+    Player player1;
+
     public Game1() {
         _graphics = new GraphicsDeviceManager(this);
 
@@ -32,11 +35,17 @@ public class Game1 : Game {
 
         // TODO: use this.Content to load your game content here
         Texture2D ballTexture = Content.Load<Texture2D>("ball");
-        ball = new Ball(
-            _graphics.PreferredBackBufferWidth,
-            _graphics.PreferredBackBufferHeight,
-            8f, ballTexture
-        );
+        int width = _graphics.PreferredBackBufferWidth;
+        int height = _graphics.PreferredBackBufferHeight;
+
+
+        ball = new Ball(width, height, 8f, ballTexture);
+
+        Texture2D player0Texture = Content.Load<Texture2D>("player0");
+        Texture2D player1Texture = Content.Load<Texture2D>("player1");
+
+        player0 = new Player(width, height, 0, 4f, player0Texture);
+        player1 = new Player(width, height, 1, 4f, player1Texture);
     }
 
     protected override void Update(GameTime gameTime) {
@@ -44,7 +53,7 @@ public class Game1 : Game {
             Exit();
 
         // TODO: Add your update logic here
-        ball.Update();
+        ball.Update(ref player0, ref player1);
         
         base.Update(gameTime);
     }
@@ -56,6 +65,9 @@ public class Game1 : Game {
         _spriteBatch.Begin();
 
         ball.Draw(_spriteBatch);
+
+        player0.Draw(_spriteBatch);
+        player1.Draw(_spriteBatch);
 
         _spriteBatch.End();
 
