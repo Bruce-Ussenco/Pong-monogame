@@ -13,6 +13,10 @@ public class Game1 : Game {
     Player player0;
     Player player1;
 
+    bool _running = false;
+
+    private SpriteFont font;
+
     public Game1() {
         _graphics = new GraphicsDeviceManager(this);
 
@@ -35,28 +39,33 @@ public class Game1 : Game {
 
         // TODO: use this.Content to load your game content here
         Texture2D ballTexture = Content.Load<Texture2D>("ball");
-        int width = _graphics.PreferredBackBufferWidth;
-        int height = _graphics.PreferredBackBufferHeight;
-
-
-        ball = new Ball(width, height, 8f, ballTexture);
-
         Texture2D player0Texture = Content.Load<Texture2D>("player0");
         Texture2D player1Texture = Content.Load<Texture2D>("player1");
 
+        int width = _graphics.PreferredBackBufferWidth;
+        int height = _graphics.PreferredBackBufferHeight;
+
+        ball = new Ball(width, height, 10f, ballTexture);
+
         player0 = new Player(width, height, 0, 4f, player0Texture);
         player1 = new Player(width, height, 1, 4f, player1Texture);
+
+        font = Content.Load<SpriteFont>("font");
     }
 
     protected override void Update(GameTime gameTime) {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
+        
+        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+            _running = true;
 
         // TODO: Add your update logic here
         player0.Update();
         player1.Update();
-        
-        ball.Update(ref player0, ref player1);
+
+        if (_running)
+            ball.Update(ref player0, ref player1);
         
         base.Update(gameTime);
     }
@@ -71,6 +80,9 @@ public class Game1 : Game {
 
         player0.Draw(_spriteBatch);
         player1.Draw(_spriteBatch);
+
+        if (!_running)
+            _spriteBatch.DrawString(font, "Press enter to start.", new Vector2(250, 100), Color.Black);
 
         _spriteBatch.End();
 

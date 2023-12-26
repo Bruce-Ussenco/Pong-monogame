@@ -27,3 +27,5 @@ C:\Bruce\MonoGame\Pong-monogame\obj\Debug\net6.0\refint\Pong-monogame.dll
 C:\Bruce\MonoGame\Pong-monogame\obj\Debug\net6.0\Pong-monogame.pdb
 C:\Bruce\MonoGame\Pong-monogame\obj\Debug\net6.0\Pong-monogame.genruntimeconfig.cache
 C:\Bruce\MonoGame\Pong-monogame\obj\Debug\net6.0\ref\Pong-monogame.dll
+C:\Bruce\MonoGame\Pong-monogame\bin\Debug\net6.0\Content\font.sfb
+C:\Bruce\MonoGame\Pong-monogame\bin\Debug\net6.0\Content\font.xnb

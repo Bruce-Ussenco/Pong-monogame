@@ -5,10 +5,12 @@
   <Config />
   <SourceFiles>
     <File>C:/Bruce/MonoGame/Pong-monogame/Content/ball.png</File>
+    <File>C:/Bruce/MonoGame/Pong-monogame/Content/font.spritefont</File>
     <File>C:/Bruce/MonoGame/Pong-monogame/Content/player0.png</File>
     <File>C:/Bruce/MonoGame/Pong-monogame/Content/player1.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

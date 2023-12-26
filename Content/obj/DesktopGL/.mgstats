@@ -1,4 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Bruce/MonoGame/Pong-monogame/Content/ball.png","C:/Bruce/MonoGame/Pong-monogame/Content/bin/DesktopGL/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0,961249
-"C:/Bruce/MonoGame/Pong-monogame/Content/player0.png","C:/Bruce/MonoGame/Pong-monogame/Content/bin/DesktopGL/player0.xnb","TextureProcessor","Texture2DContent",303,30805,0,0606577
-"C:/Bruce/MonoGame/Pong-monogame/Content/player1.png","C:/Bruce/MonoGame/Pong-monogame/Content/bin/DesktopGL/player1.xnb","TextureProcessor","Texture2DContent",302,30805,0,0108905
+"C:/Bruce/MonoGame/Pong-monogame/Content/ball.png","C:/Bruce/MonoGame/Pong-monogame/Content/bin/DesktopGL/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0,4174029
+"C:/Bruce/MonoGame/Pong-monogame/Content/font.spritefont","C:/Bruce/MonoGame/Pong-monogame/Content/bin/DesktopGL/font.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0,5121414
+"C:/Bruce/MonoGame/Pong-monogame/Content/player0.png","C:/Bruce/MonoGame/Pong-monogame/Content/bin/DesktopGL/player0.xnb","TextureProcessor","Texture2DContent",303,30805,0,0174704
+"C:/Bruce/MonoGame/Pong-monogame/Content/player1.png","C:/Bruce/MonoGame/Pong-monogame/Content/bin/DesktopGL/player1.xnb","TextureProcessor","Texture2DContent",302,30805,0,0856123
