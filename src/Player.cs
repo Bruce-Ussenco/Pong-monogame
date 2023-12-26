@@ -40,17 +40,27 @@ public class Player {
 
     public void Update() {
         if (_playerNum == 0) {
-            if (Keyboard.GetState().IsKeyDown(Keys.Up)) {
-                _position.Y = Math.Max(_height/2, _position.Y - _speed);
-            }
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Down)) {
-                _position.Y = Math.Min(_screenHeight - _height/2, _position.Y + _speed);
-            }
+            if (Keyboard.GetState().IsKeyDown(Keys.W))
+                moveUp();
+            
+            if (Keyboard.GetState().IsKeyDown(Keys.S))
+                moveDown();
         }
         else {
-
+            if (Keyboard.GetState().IsKeyDown(Keys.Up))
+                moveUp();
+            
+            if (Keyboard.GetState().IsKeyDown(Keys.Down))
+                moveDown();
         }
+    }
+
+    void moveUp() {
+        _position.Y = Math.Max(_height/2, _position.Y - _speed);
+    }
+
+    void moveDown() {
+        _position.Y = Math.Min(_screenHeight - _height/2, _position.Y + _speed);
     }
 
     public void Draw(SpriteBatch spriteBatch) {
