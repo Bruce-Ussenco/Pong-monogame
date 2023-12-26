@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Bruce\\MonoGame\\Pong-monogame\\Pong-monogame.csproj": {}
+    "C:\\Bruce\\MonoGame\\Pong-monogame\\Pong-monogame.csproj": {}
   },
   "projects": {
-    "c:\\Bruce\\MonoGame\\Pong-monogame\\Pong-monogame.csproj": {
+    "C:\\Bruce\\MonoGame\\Pong-monogame\\Pong-monogame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Bruce\\MonoGame\\Pong-monogame\\Pong-monogame.csproj",
+        "projectUniqueName": "C:\\Bruce\\MonoGame\\Pong-monogame\\Pong-monogame.csproj",
         "projectName": "Pong-monogame",
-        "projectPath": "c:\\Bruce\\MonoGame\\Pong-monogame\\Pong-monogame.csproj",
+        "projectPath": "C:\\Bruce\\MonoGame\\Pong-monogame\\Pong-monogame.csproj",
         "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "c:\\Bruce\\MonoGame\\Pong-monogame\\obj\\",
+        "outputPath": "C:\\Bruce\\MonoGame\\Pong-monogame\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
