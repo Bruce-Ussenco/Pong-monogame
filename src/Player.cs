@@ -19,6 +19,8 @@ public class Player {
     int _screenWidth;
     int _screenHeight;
 
+    int _score = 0;
+
     public Player(int screenWidth, int screenHeight, int playerNum, float speed, Texture2D texture) {
         _screenWidth  = screenWidth;
         _screenHeight = screenHeight;
@@ -74,6 +76,12 @@ public class Player {
             Color.White
         );
     }
+
+    public void DrawScore(SpriteBatch spriteBatch, SpriteFont font) {
+        spriteBatch.DrawString(font, "" + _score, new Vector2(_position.X + 16, 0), Color.Black);
+    }
+
+    public void AddScore() => _score++;
 
     public float getLeft() => _position.X;           // x pos of left face
     public float getRight() => _position.X + _width; // right face ...

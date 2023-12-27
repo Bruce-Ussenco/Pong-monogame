@@ -11,6 +11,8 @@ public class Ball {
     Vector2 _position;
     Vector2 _velocity;
 
+    float _speed;
+
     int _screenWidth;
     int _screenHeight;
 
@@ -21,6 +23,9 @@ public class Ball {
 
     public Ball(int screenWidth, int screenHeight, float speed, Texture2D texture) {
         _position = new Vector2(screenWidth/2, screenHeight/2);
+        _speed = speed;
+        SetVelocity(_speed);
+
         _texture = texture;
 
         _screenWidth = screenWidth;
@@ -28,7 +33,9 @@ public class Ball {
 
         _diameter = _texture.Width;
         _radius = _diameter/2;
+    }
 
+    void SetVelocity(float speed) {
         Random rnd = new Random();
         double angle = rnd.NextDouble() *120 -60; // angle between -60 and 60 deg
         angle *= Math.PI /180.0;                  // convert to radians
@@ -44,27 +51,35 @@ public class Ball {
     public void Update(ref Player player0, ref Player player1) {
         _position += _velocity;
 
-        if ( // horizontal collision
-            (_position.X + _radius > _screenWidth && _velocity.X > 0) ||
-            (_position.X < _radius && _velocity.X < 0)
-        ) _velocity.X *= -1;
-
         if ( // player0 horizontal collision
+            (_position.X - _radius < player0.getRight() && _velocity.X < 0) &&
             (_position.Y < player0.getDown()) &&
-            (_position.Y > player0.getUp()) &&
-            (_position.X - _radius < player0.getRight() && _velocity.X < 0)
+            (_position.Y > player0.getUp())
         ) _velocity.X *= -1;
 
         if ( // player1 horizontal collision
+            (_position.X + _radius > player1.getLeft() && _velocity.X > 0) &&
             (_position.Y < player1.getDown()) &&
-            (_position.Y > player1.getUp()) &&
-            (_position.X + _radius > player1.getLeft() && _velocity.X > 0)
+            (_position.Y > player1.getUp())
         ) _velocity.X *= -1;
 
         if (  // vertical collision
             (_position.Y + _radius > _screenHeight && _velocity.Y > 0) ||
             (_position.Y < _radius && _velocity.Y < 0)
         ) _velocity.Y *= -1;
+    }
+
+    public int GoalCollision() {
+        int player;
+
+        if (_position.X + _radius > _screenWidth)
+            player = 0;
+        else if (_position.X < _radius)
+            player = 1;
+        else
+            player = -1;
+
+        return player;
     }
 
     public void Draw(SpriteBatch spriteBatch) {
@@ -77,5 +92,10 @@ public class Ball {
             ),
             Color.White
         );
+    }
+
+    public void Reset() {
+        _position = new Vector2(_screenWidth/2, _screenHeight/2);
+        SetVelocity(_speed);
     }
 }

@@ -14,6 +14,7 @@ public class Game1 : Game {
     Player player1;
 
     bool _running = false;
+    bool _finished = false;
 
     private SpriteFont font;
 
@@ -64,8 +65,20 @@ public class Game1 : Game {
         player0.Update();
         player1.Update();
 
-        if (_running)
+        if (_running && !_finished) {
             ball.Update(ref player0, ref player1);
+
+            int playerGoal = ball.GoalCollision();
+            if (playerGoal != -1) {
+                _running = false;
+                ball.Reset();
+
+                if (playerGoal == 0)
+                    player0.AddScore();
+                else
+                    player1.AddScore();
+            }
+        }
         
         base.Update(gameTime);
     }
@@ -81,9 +94,14 @@ public class Game1 : Game {
         player0.Draw(_spriteBatch);
         player1.Draw(_spriteBatch);
 
-        if (!_running)
-            _spriteBatch.DrawString(font, "Press enter to start.", new Vector2(250, 100), Color.Black);
+        player0.DrawScore(_spriteBatch, font);
+        player1.DrawScore(_spriteBatch, font);
 
+        if (!_running && !_finished)
+            _spriteBatch.DrawString(font, "Press enter to start.", new Vector2(250, 100), Color.Black);
+        else if (_finished) {
+            _spriteBatch.DrawString(font, "Game over!!!", new Vector2(250, 100), Color.Black);
+        }
         _spriteBatch.End();
 
         base.Draw(gameTime);
